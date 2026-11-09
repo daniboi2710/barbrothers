@@ -1,0 +1,101 @@
+{
+  "type": "carousel",
+  "slug": "carousel_srilanka_clear",
+  "template": "manga.html",
+  "slides": [
+    {
+      "layout": "split",
+      "art": "hero",
+      "h": "87% of Sri Lankan adults don't exercise.",
+      "b": "No sport. No gym. No workouts.",
+      "s": "WHO STEPS survey, 2021"
+    },
+    {
+      "layout": "split",
+      "art": "eye",
+      "h": "Seeni and pressure are common.",
+      "rows": [
+        [
+          "1 in 7",
+          "has high blood sugar"
+        ],
+        [
+          "1 in 3",
+          "has high blood pressure"
+        ],
+        [
+          "2 in 5",
+          "is overweight"
+        ]
+      ],
+      "s": "Sri Lankan adults. WHO STEPS survey, 2021"
+    },
+    {
+      "layout": "split",
+      "art": "burst",
+      "bg": "#E4002B",
+      "lines": "#000",
+      "seed": 21,
+      "big": "Muscle<br>vs. seeni",
+      "bigsize": 136,
+      "h": "Muscle helps control blood sugar.",
+      "b": "Your muscles use sugar from your blood. South Asians tend to have less muscle, so building it is worth it.",
+      "s": "Alkhayl et al., Scientific Reports, 2022 (small study)"
+    },
+    {
+      "layout": "split",
+      "art": "burst",
+      "bg": "#000",
+      "lines": "#4a4a4a",
+      "seed": 33,
+      "big": "10–17%",
+      "bigsize": 190,
+      "h": "Lower risk of early death and disease.",
+      "b": "Studies link this to regular strength training. The biggest benefit came from just 30–60 minutes a week.",
+      "s": "Momma et al., BJSM, 2022. Observational studies."
+    },
+    {
+      "layout": "list",
+      "h": "Start at any level.",
+      "b": "No gym needed. It even works in a power cut.",
+      "rows": [
+        [
+          "1",
+          "Wall",
+          "Hands on a wall"
+        ],
+        [
+          "2",
+          "Table",
+          "Hands on a table"
+        ],
+        [
+          "3",
+          "Knees",
+          "Knees on the floor"
+        ],
+        [
+          "4",
+          "Floor",
+          "A full push-up"
+        ]
+      ]
+    },
+    {
+      "layout": "split",
+      "art": "crack",
+      "h": "10 minutes,<br>3 days a week.",
+      "b": "That's a good start. Do it before the kottu.",
+      "cta": "Follow @barbrothers.lk for more."
+    }
+  ],
+  "alt_text": [
+    "Manga-style hero doing a push-up. 87% of Sri Lankan adults don't exercise.",
+    "Close-up of an intense manga eye. Seeni and pressure are common: 1 in 7 has high blood sugar, 1 in 3 high blood pressure, 2 in 5 overweight.",
+    "Manga burst reading Muscle vs. seeni. Muscle helps control blood sugar.",
+    "Manga burst reading 10 to 17 percent. Lower risk of early death and disease with regular strength training.",
+    "Start at any level: wall, table, knees, floor.",
+    "Manga-style hero at the bottom of a push-up. 10 minutes, 3 days a week. Follow @barbrothers.lk."
+  ],
+  "caption": "87% of Sri Lankan adults don't exercise. And seeni and pressure are common in our families.\n\nThe good news is you don't need a gym. Ten minutes of push-ups, 3 days a week, is a good start. Begin on a wall if you need to.\n\nTag someone who keeps saying \"from Monday\".\n\nSources: WHO STEPS Sri Lanka 2021; Momma et al., BJSM 2022; Alkhayl et al., Sci Rep 2022. These show links, not guarantees. If you have a heart condition or high blood pressure, talk to your doctor first.\n\n#SriLanka #calisthenics #pushups #srilankafitness #bodyweightworkout"
+}

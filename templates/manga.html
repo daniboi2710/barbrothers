@@ -20,6 +20,23 @@ svg { position: absolute; inset: 0; }
 .tag { position: absolute; right: 30px; bottom: 28px; background: #000; color: #fff; font-weight: 900; font-style: italic; font-size: 30px; padding: 8px 16px; }
 .row { position: absolute; left: 96px; right: 96px; display: flex; justify-content: space-between; align-items: baseline; font-weight: 900; font-style: italic; }
 .row small { font-size: 40px; font-style: normal; font-weight: 700; }
+
+.copy { position: absolute; left: 64px; right: 64px; top: 772px; bottom: 58px; color: #fff; display: flex; flex-direction: column; }
+.h { font-weight: 900; font-style: italic; font-size: 92px; line-height: 1.02; letter-spacing: -.025em; text-wrap: balance; }
+.b { font-weight: 500; font-size: 46px; line-height: 1.22; letter-spacing: -.01em; margin-top: 24px; text-wrap: pretty; }
+.s { margin-top: auto; font-weight: 500; font-size: 28px; color: #B8B8B8; }
+.cta { margin-top: auto; font-weight: 800; font-size: 50px; letter-spacing: -.015em; }
+.r { display: flex; align-items: baseline; gap: 30px; margin-top: 10px; line-height: 1.1; font-weight: 600; font-size: 46px; letter-spacing: -.01em; }
+.r b { font-weight: 900; font-style: italic; font-size: 72px; color: #FF2D4B; width: 196px; flex: none; letter-spacing: -.02em; }
+.list { position: absolute; left: 64px; right: 64px; top: 470px; bottom: 64px; display: flex; flex-direction: column; justify-content: space-between; color: #000; }
+.li { display: flex; align-items: center; gap: 28px; border-bottom: 5px solid #000; padding-bottom: 20px; }
+.li:last-child { border-bottom: 0; padding-bottom: 0; }
+.li b { font-weight: 900; font-style: italic; font-size: 112px; line-height: 1; color: #E4002B; width: 96px; flex: none; }
+.li div strong { display: block; font-weight: 900; font-style: italic; font-size: 76px; line-height: 1; letter-spacing: -.02em; }
+.li div span { display: block; font-weight: 500; font-size: 42px; margin-top: 8px; }
+.head { position: absolute; left: 64px; right: 64px; top: 70px; color: #fff; }
+.head .h { font-size: 112px; }
+.head .b { font-size: 46px; font-weight: 600; }
 </style>
 <div id="stage"><svg id="art" viewBox="0 0 1080 1350" width="1080" height="1350"></svg><div id="text"></div></div>
 <script>
@@ -155,6 +172,31 @@ const layouts={
    else T(r[2],'box',{left:F(66),top:F(top+0+216-14),fontSize:F(30),padding:'3px 12px'});
   });
  },
+
+ split(c){
+  const art=[[0,0],[1080,0],[1080,660],[0,720]];
+  panel(art,c.art==='burst'?c.bg:(c.art==='hero'?RED:'#fff'),g=>{
+   if(c.art==='hero'){focus(g,520,340,470,1200,150,7,'#000');el('rect',{x:0,y:618,width:1080,height:110,fill:'url(#tone)'},g);el('rect',{x:0,y:612,width:1080,height:8,fill:'#000'},g);hero(g,{x:62,y:134,s:.98,band:'#fff'});}
+   if(c.art==='eye'){el('rect',{x:0,y:0,width:1080,height:740,fill:'url(#toneL)'},g);focus(g,540,350,370,900,150,11,'#000');el('ellipse',{cx:540,cy:350,rx:440,ry:240,fill:'#fff'},g);eye(g,520,370,1.04);}
+   if(c.art==='burst'){focus(g,540,345,380,1100,160,c.seed,c.lines);burst(g,540,345,510,275,20,c.seed,'#fff','#000');}
+   if(c.art==='crack'){focus(g,300,340,380,1200,180,13,'#000');el('rect',{x:0,y:618,width:1080,height:110,fill:'url(#tone)'},g);el('rect',{x:0,y:612,width:1080,height:8,fill:'#000'},g);
+    const r=rng(3);for(let i=0;i<10;i++){const a=Math.PI*(.08+.84*i/9),l=70+r()*90,o=[340,620];let px=o[0],py=o[1],d=`M${px} ${py}`;for(let k=0;k<3;k++){px+=Math.cos(a)*l/3+(r()-.5)*24;py+=Math.sin(a)*l/3*.5;d+=` L${px} ${py}`;}el('path',{d,stroke:'#000','stroke-width':7,fill:'none'},g);}
+    hero(g,{x:96,y:136,s:.98,ang:-15,bent:true});}
+  });
+  panel([[0,720],[1080,660],[1080,1350],[0,1350]],'#000');
+  if(c.art==='burst') T(c.big,'t black',{left:0,right:0,textAlign:'center',top:F(345-c.bigsize*.5*((c.big.match(/<br>/g)||[]).length+1)),fontSize:F(c.bigsize)});
+  let h=`<div class="h">${c.h}</div>`;
+  if(c.b) h+=`<div class="b">${c.b}</div>`;
+  if(c.rows) h+=c.rows.map(r=>`<div class="r"><b>${r[0]}</b><span>${r[1]}</span></div>`).join('');
+  if(c.s) h+=`<div class="s">${c.s}</div>`;
+  if(c.cta) h+=`<div class="cta">${c.cta}</div>`;
+  T(h,'copy',{});
+ },
+ list(c){
+  panel([[0,0],[1080,0],[1080,380],[0,440]],RED,g=>focus(g,900,120,560,1300,110,9,'#000'));
+  T(`<div class="h">${c.h}</div><div class="b">${c.b}</div>`,'head',{});
+  T(c.rows.map(r=>`<div class="li"><b>${r[0]}</b><div><strong>${r[1]}</strong><span>${r[2]}</span></div></div>`).join(''),'list',{});
+ },
  finale(c){
   panel([[0,0],[1080,0],[1080,1350],[0,1350]],'#fff',g=>{
    focus(g,300,800,380,1300,190,13,'#000');
@@ -175,6 +217,6 @@ const layouts={
  }
 };
 function init(c){setup();layouts[c.layout](c);
- if(c.layout!=='cover'&&c.layout!=='finale') T('Bar Brother','tag',{});
- const bad=[];document.querySelectorAll('.t,.box,.jp').forEach(n=>{const r=n.getBoundingClientRect();if(r.left<-1||r.right>1081||r.bottom>1351)bad.push(n.textContent.slice(0,30)+' '+Math.round(r.right));});return bad;}
+ const bad=[];document.querySelectorAll('.copy,.list').forEach(n=>{if(n.scrollHeight>n.clientHeight+1)bad.push('too tall: '+n.textContent.slice(0,30));});
+ document.querySelectorAll('.t,.box,.jp').forEach(n=>{const r=n.getBoundingClientRect();if(r.left<-1||r.right>1081||r.bottom>1351)bad.push(n.textContent.slice(0,30)+' '+Math.round(r.right));});return bad;}
 </script>
