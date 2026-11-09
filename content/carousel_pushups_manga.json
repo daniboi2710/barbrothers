@@ -1,0 +1,124 @@
+{
+  "type": "carousel",
+  "slug": "carousel_pushups_manga",
+  "template": "manga.html",
+  "slides": [
+    {
+      "layout": "cover",
+      "kicker": "Bar Brother, Episode 1",
+      "title": [
+        "YOUR",
+        "TRAINING",
+        "ARC."
+      ],
+      "size": 150,
+      "jp": "腕立て伏せ",
+      "sfx": "ゴゴゴ",
+      "box": "Opponent: the floor. Record: undefeated."
+    },
+    {
+      "layout": "stats",
+      "box": "One push-up later...",
+      "title": [
+        "ONE MOVE.",
+        "FOUR STATS UP."
+      ],
+      "size": 96,
+      "rows": [
+        [
+          "CHEST",
+          "+1"
+        ],
+        [
+          "SHOULDERS",
+          "+1"
+        ],
+        [
+          "TRICEPS",
+          "+1 (complaining)"
+        ],
+        [
+          "CORE",
+          "+1"
+        ]
+      ]
+    },
+    {
+      "layout": "burst",
+      "bg": "#E4002B",
+      "lines": "#000",
+      "seed": 21,
+      "cy": 560,
+      "rx": 500,
+      "ry": 340,
+      "big": "Rs. 0",
+      "bigsize": 250,
+      "box": "Dojo membership:",
+      "jp": "重力",
+      "title": [
+        "YOUR SENSEI:",
+        "GRAVITY."
+      ],
+      "titley": 985,
+      "size": 112,
+      "body": null
+    },
+    {
+      "layout": "burst",
+      "bg": "#000",
+      "lines": "#4a4a4a",
+      "seed": 33,
+      "cy": 500,
+      "rx": 500,
+      "ry": 320,
+      "big": "96%",
+      "bigsize": 300,
+      "box": "Power level detected:",
+      "title": [
+        "LOWER HEART RISK."
+      ],
+      "titley": 850,
+      "size": 96,
+      "body": "Over 10 years, male firefighters doing 40+ push-ups vs. under 10. One study, a link not a guarantee. Yang et al., JAMA Netw Open, 2019."
+    },
+    {
+      "layout": "levels",
+      "head": "EVERY HERO STARTS AT LV.1",
+      "size": 72,
+      "rows": [
+        [
+          "LV.1",
+          "WALL",
+          "Humble."
+        ],
+        [
+          "LV.2",
+          "TABLE",
+          "Honest."
+        ],
+        [
+          "LV.3",
+          "KNEES",
+          "No shame."
+        ],
+        [
+          "LV.4",
+          "FLOOR",
+          "Final form: insufferable."
+        ]
+      ]
+    },
+    {
+      "layout": "finale",
+      "title": [
+        "3 SETS.",
+        "CLEAN REPS."
+      ],
+      "size": 150,
+      "body": "Stop when your form starts negotiating.",
+      "sfx": "ドン",
+      "next": "Next episode: follow @barbrothers.lk",
+      "end": "続く"
+    }
+  ]
+}
