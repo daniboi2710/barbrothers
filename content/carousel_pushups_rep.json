@@ -1,0 +1,46 @@
+{
+  "type": "carousel",
+  "slug": "carousel_pushups_rep",
+  "template": "carousel_rep.html",
+  "slides": [
+    {
+      "edge": [1010, 810],
+      "sky": { "big": "The floor is<br>the best gym<br>you never<br>joined.", "size": 150 },
+      "ground": { "body": "Why push-ups work" }
+    },
+    {
+      "edge": [810, 590],
+      "sky": { "big": "Chest, shoulders,<br>triceps, core.", "size": 104 },
+      "ground": { "big": "One rep.", "size": 180, "body": "Your most productive meeting all week." }
+    },
+    {
+      "edge": [590, 420],
+      "sky": { "big": "Monthly fee", "size": 76 },
+      "ground": { "big": "Rs. 0", "size": 340, "body": "No contract. No queue. Nobody asking if you're done with that." }
+    },
+    {
+      "edge": [420, 590],
+      "sky": { "big": "Your heart notices", "size": 76 },
+      "ground": { "big": "96%", "size": 340, "body": "lower risk of heart events over 10 years in male firefighters doing 40+ push-ups, versus under 10.", "note": "One study. A link, not a guarantee. Yang et al., JAMA Netw Open, 2019." }
+    },
+    {
+      "edge": [590, 810],
+      "sky": { "big": "A level for<br>every ego.", "size": 124 },
+      "ground": { "rows": [["Wall", "humble"], ["Table", "honest"], ["Knees", "no shame"], ["Floor", "insufferable"]] }
+    },
+    {
+      "edge": [810, 1010],
+      "sky": { "big": "Three sets.<br>Clean reps.", "size": 150, "body": "Stop when your form starts negotiating." },
+      "ground": { "big": "Follow @barbrothers.lk", "size": 72 }
+    }
+  ],
+  "alt_text": [
+    "Headline: The floor is the best gym you never joined. A blue floor edge slopes across the slide.",
+    "Chest, shoulders, triceps, core. One rep. Your most productive meeting all week.",
+    "Monthly fee: Rs. 0. No contract. No queue. Nobody asking if you're done with that.",
+    "96 percent lower risk of heart events over 10 years in male firefighters doing 40 or more push-ups versus under 10. One study, a link, not a guarantee.",
+    "A level for every ego: wall, humble; table, honest; knees, no shame; floor, insufferable.",
+    "Three sets. Clean reps. Stop when your form starts negotiating. Follow @barbrothers.lk."
+  ],
+  "caption": "The floor: open 24/7, no membership, zero small talk.\n\nPush-ups train your chest, shoulders, triceps and core in one move, and there's a version for every level. Start wherever your ego allows.\n\nHeart stat: Yang et al., JAMA Network Open, 2019. One study of male firefighters. It shows a link, not cause and effect.\n\n#pushups #calisthenics #bodyweightworkout #homeworkout #fitness"
+}

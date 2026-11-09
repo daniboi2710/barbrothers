@@ -42,7 +42,7 @@ def render_carousel(c):
     with sync_playwright() as pw:
         browser, page = open_page(pw, 1080, 1350, "post.html")
         for i, s in enumerate(c["slides"], 1):
-            page.goto((ROOT / "templates" / "post.html").as_uri())
+            page.goto((ROOT / "templates" / c.get("template", "post.html")).as_uri())
             page.evaluate("document.fonts.ready")
             bad = page.evaluate("c => init(c)", s)
             if bad:

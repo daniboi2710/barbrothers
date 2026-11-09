@@ -1,0 +1,51 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>
+/* "The Rep": the floor edge runs continuously across every slide,
+   dropping to the lowest point of a push-up mid-carousel and coming back up. */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --concrete: #D9DBDD; --cobalt: #1B2BE0; }
+html, body { background: var(--concrete); overflow: hidden; }
+#stage { position: relative; width: 1080px; height: 1350px; background: var(--concrete); color: var(--cobalt);
+  font-family: "Inter Display", Inter, sans-serif; font-weight: 600; letter-spacing: -.035em; overflow: hidden; }
+#floor { position: absolute; inset: 0; background: var(--cobalt); }
+.brand { position: absolute; left: 72px; top: 68px; font-size: 36px; letter-spacing: -.02em; }
+#sky, #ground { position: absolute; left: 72px; right: 72px; }
+#sky { top: 168px; }
+#ground { bottom: 72px; color: var(--concrete); }
+.big { white-space: nowrap; line-height: 1; letter-spacing: -.045em; }
+.body { font-weight: 500; font-size: 48px; line-height: 1.16; letter-spacing: -.02em; margin-top: 26px; }
+.note { font-weight: 500; font-size: 30px; line-height: 1.25; letter-spacing: -.01em; margin-top: 22px; }
+.row { display: flex; justify-content: space-between; align-items: baseline; font-size: 76px; line-height: 1.26; letter-spacing: -.035em; }
+.row span:last-child { font-size: 44px; font-weight: 500; letter-spacing: -.02em; }
+</style>
+<div id="stage">
+  <div id="floor"></div>
+  <div class="brand">Bar Brother</div>
+  <div id="sky"></div>
+  <div id="ground"></div>
+</div>
+<script>
+function block(b) {
+  if (!b) return '';
+  let h = '';
+  if (b.big) h += `<div class="big" style="font-size:${b.size}px">${b.big}</div>`;
+  if (b.rows) h += b.rows.map(r => `<div class="row"><span>${r[0]}</span><span>${r[1]}</span></div>`).join('');
+  if (b.body) h += `<div class="body">${b.body}</div>`;
+  if (b.note) h += `<div class="note">${b.note}</div>`;
+  return h;
+}
+function init(s) {
+  const [L, R] = s.edge;
+  floor.style.clipPath = `polygon(0 ${L}px, 100% ${R}px, 100% 100%, 0 100%)`;
+  sky.innerHTML = block(s.sky);
+  ground.innerHTML = block(s.ground);
+  const bad = [], gap = 24;
+  const a = sky.getBoundingClientRect(), b = ground.getBoundingClientRect();
+  // Keep text wholly on one side of the sloped edge, and inside the margins.
+  if (s.sky && a.bottom > Math.min(L, R) - gap) bad.push('sky text crosses the edge: ' + Math.round(a.bottom));
+  if (s.ground && b.top < Math.max(L, R) + gap) bad.push('ground text crosses the edge: ' + Math.round(b.top));
+  document.querySelectorAll('.big').forEach(n => { if (n.scrollWidth > n.clientWidth + 1) bad.push('too wide: ' + n.textContent.slice(0, 30)); });
+  return bad;
+}
+</script>
