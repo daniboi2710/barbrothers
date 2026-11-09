@@ -1,0 +1,235 @@
+{
+  "type": "carousel",
+  "slug": "carousel_pushups",
+  "slides": [
+    {
+      "page": "SWIPE >",
+      "kicker": "WHY PUSH-UPS ARE GOOD FOR YOU:",
+      "headline": [
+        "You vs.",
+        "the floor."
+      ],
+      "footer": "Good news: the floor has never skipped a rep either.",
+      "pose": "push_up",
+      "mood": "smug",
+      "floor": true,
+      "figure_scale": 1.05,
+      "figure_floor": 810,
+      "notes": [
+        {
+          "x": 760,
+          "y": 300,
+          "label": "FLOOR:",
+          "value": "unimpressed",
+          "from": [
+            880,
+            386
+          ],
+          "to": [
+            985,
+            806
+          ],
+          "bow": 170
+        }
+      ]
+    },
+    {
+      "page": "2/6",
+      "kicker": "REASON 1: EFFICIENCY",
+      "headline": [
+        "One move.",
+        "Full meeting."
+      ],
+      "headline_size": 132,
+      "footer": "Chest, shoulders, triceps and core. All in one rep.",
+      "pose": "push_up",
+      "floor": true,
+      "figure_scale": 1.05,
+      "figure_floor": 810,
+      "notes": [
+        {
+          "x": 370,
+          "y": 215,
+          "label": "SHOULDERS:",
+          "value": "cc'd on everything",
+          "from": [
+            440,
+            328
+          ],
+          "to": [
+            372,
+            535
+          ],
+          "bow": 30
+        },
+        {
+          "x": 680,
+          "y": 215,
+          "label": "CHEST:",
+          "value": "chairing",
+          "from": [
+            730,
+            300
+          ],
+          "to": [
+            470,
+            600
+          ],
+          "bow": 60
+        },
+        {
+          "x": 790,
+          "y": 370,
+          "label": "CORE:",
+          "value": "holding it together",
+          "from": [
+            840,
+            482
+          ],
+          "to": [
+            628,
+            672
+          ],
+          "bow": 50
+        },
+        {
+          "x": 56,
+          "y": 620,
+          "label": "TRICEPS:",
+          "value": "complaining",
+          "from": [
+            288,
+            672
+          ],
+          "to": [
+            354,
+            673
+          ],
+          "bow": -16
+        }
+      ]
+    },
+    {
+      "page": "3/6",
+      "kicker": "REASON 2: THE PRICE",
+      "headline": [
+        "Free.",
+        "Unlike your gym."
+      ],
+      "headline_size": 104,
+      "footer": "Works anywhere with a floor. So, most places.",
+      "receipt": {
+        "head": "THE FLOOR GYM<br>NO REFUNDS",
+        "rows": [
+          [
+            "FLOOR x1",
+            "FREE"
+          ],
+          [
+            "GRAVITY",
+            "FREE"
+          ],
+          [
+            "YOUR ARMS",
+            "OWNED"
+          ],
+          [
+            "EXCUSES",
+            "SOLD OUT"
+          ]
+        ],
+        "total": "0.00"
+      }
+    },
+    {
+      "page": "4/6",
+      "kicker": "REASON 3: YOUR HEART MAY BE WATCHING",
+      "headline": [
+        "40 reps.",
+        "Big flex."
+      ],
+      "headline_size": 132,
+      "footer": "One study, a link not a guarantee. Yang et al., JAMA Netw Open, 2019.",
+      "stat": "96%",
+      "statline": "lower risk of heart events over 10 years in male firefighters who could do 40+ push-ups, compared with those who managed under 10.",
+      "pose": "stand_win",
+      "figure_scale": 0.58,
+      "figure_floor": 525,
+      "figure_x": 310
+    },
+    {
+      "page": "5/6",
+      "kicker": "REASON 4: NO EXCUSES LEFT",
+      "headline": [
+        "A level for",
+        "every ego."
+      ],
+      "headline_size": 132,
+      "footer": "Can't do one yet? Start higher up. Literally.",
+      "stairs": [
+        [
+          "WALL",
+          "humble"
+        ],
+        [
+          "TABLE",
+          "honest"
+        ],
+        [
+          "KNEES",
+          "no shame"
+        ],
+        [
+          "FULL",
+          "insufferable"
+        ]
+      ],
+      "stairs_base": 700,
+      "stairs_rise": 90,
+      "pose": "stand_win",
+      "figure_scale": 0.4,
+      "figure_floor": 430,
+      "figure_x": 340
+    },
+    {
+      "page": "6/6",
+      "kicker": "YOUR HOMEWORK:",
+      "headline": [
+        "3 sets.",
+        "Clean reps."
+      ],
+      "headline_size": 132,
+      "footer": "Stop when your form files a complaint. Then follow for more fights with the floor.",
+      "pose": "push_down",
+      "floor": true,
+      "figure_scale": 1.05,
+      "figure_floor": 810,
+      "notes": [
+        {
+          "x": 660,
+          "y": 330,
+          "label": "FORM:",
+          "value": "under review",
+          "from": [
+            720,
+            430
+          ],
+          "to": [
+            612,
+            770
+          ],
+          "bow": 60
+        }
+      ]
+    }
+  ],
+  "alt_text": [
+    "Stick figure in a headband holding a push-up above the floor, with the headline You vs. the floor.",
+    "Stick figure in a push-up with joke labels on each muscle, headline One move. Full meeting.",
+    "A joke receipt listing floor, gravity and your arms as free, total zero, headline Free. Unlike your gym.",
+    "Large 96 percent statistic about push-up capacity and heart events in a study of male firefighters.",
+    "Four steps labelled wall, table, knees and full push-up, headline A level for every ego.",
+    "Stick figure at the bottom of a push-up, headline 3 sets. Clean reps."
+  ],
+  "caption": "Push-ups: the only workout where you lose an argument with the floor and somehow get stronger.\n\nFree, works most of your upper body, and scales from \"leaning on a wall\" to \"telling everyone about it\". Start wherever your ego can handle.\n\nSend this to the brother who's been \"starting Monday\" since 2022.\n\nHeart stat: Yang et al., JAMA Network Open, 2019. Study of male firefighters; it shows a link, not cause and effect. Not medical advice.\n\n#pushups #calisthenics #bodyweightworkout #homeworkout #fitnesshumor"
+}

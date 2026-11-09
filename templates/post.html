@@ -8,13 +8,21 @@
 .note b { color: var(--tape); font-weight: 700; display: block; }
 .copy { position: absolute; left: 56px; width: 968px; top: 856px; height: 450px; }
 .kicker { font-size: 38px; color: var(--tape); margin-bottom: 18px; }
-.headline { font-size: 146px; }
+.headline { font-size: 146px; white-space: nowrap; }
+.page { position: absolute; right: 56px; top: 132px; font-size: 32px; color: var(--chalk); opacity: .75; }
+.stat { position: absolute; left: 56px; top: 196px; font-size: 310px; font-weight: 900; letter-spacing: -.05em; color: var(--tape); line-height: 1; }
+.statline { position: absolute; left: 56px; top: 566px; width: 968px; font-size: 52px; font-weight: 800; line-height: 1.12; letter-spacing: -.015em; }
+.receipt { position: absolute; left: 225px; top: 226px; width: 630px; background: var(--chalk); color: #15191B; padding: 38px 42px 60px; transform: rotate(2deg); font-size: 42px; line-height: 1.25; }
+.receipt h3 { font: inherit; font-weight: 700; text-align: center; margin-bottom: 18px; }
+.receipt .r { display: flex; justify-content: space-between; }
+.receipt .t { border-top: 4px dashed #15191B; margin-top: 16px; padding-top: 14px; font-size: 50px; }
 .foot { font-size: 40px; font-weight: 700; margin-top: 30px; letter-spacing: -.01em; }
 </style>
 <div id="stage">
   <svg class="art" id="art" viewBox="0 0 1080 1350" width="1080" height="1350"></svg>
   <div class="tag">BAR BROTHER</div>
   <div id="notes"></div>
+  <div id="extras"></div>
   <div class="copy" id="copy">
     <div class="kicker mono" id="kicker"></div>
     <div class="headline" id="headline"></div>
@@ -30,13 +38,29 @@ function init(c) {
   if (c.headline_size) headline.style.fontSize = c.headline_size + 'px';
   const svg = document.getElementById('art');
   defs(svg);
-  const S = c.figure_scale || 1, BAR = 96, FLOOR = c.figure_floor || 810;
-  const tx = (x) => 540 + (x - 540) * S, ty = (y) => FLOOR + (y - 1180) * S;
+  const S = c.figure_scale || 1, BAR = 96, FLOOR = c.figure_floor || 810, SHIFT = c.figure_x || 0;
+  const tx = (x) => 540 + (x - 540) * S + SHIFT, ty = (y) => FLOOR + (y - 1180) * S;
   drawBar(svg, BAR);
   const g = el('g', { transform:`translate(${tx(0)} ${ty(0)}) scale(${S})` }, svg);
   const fig = el('g', {}, g);
-  const p = POSES[c.pose];
-  drawFigure(fig, p);
+  const p = c.pose ? { ...POSES[c.pose], mood: c.mood || POSES[c.pose].mood } : null;
+  if (c.floor) el('rect', { x:0, y:FLOOR-3, width:1080, height:6, fill:CHALK, opacity:.45 }, svg);
+  if (c.stairs) c.stairs.forEach((st, i) => {
+    const w = 232, x = 56 + i*w, y = c.stairs_base - i*c.stairs_rise, h = 810 - y;
+    el('rect', { x, y, width:w, height:h, fill:'#22282B', stroke:CHALK, 'stroke-width':8, filter:'url(#chalk)' }, svg);
+    const a = el('text', { x:x+w/2, y:y+56, 'text-anchor':'middle', 'font-family':'Inter Display', 'font-weight':900, 'font-size':42, fill:TAPE }, svg); a.textContent = st[0];
+    const b = el('text', { x:x+w/2, y:y+92, 'text-anchor':'middle', 'font-family':'Courier 10 Pitch', 'font-weight':700, 'font-size':31, fill:CHALK }, svg); b.textContent = st[1];
+  });
+  if (p) drawFigure(fig, p);
+  if (c.page) { const d = document.createElement('div'); d.className='page mono'; d.textContent=c.page; extras.appendChild(d); }
+  if (c.stat) extras.insertAdjacentHTML('beforeend', `<div class="stat">${c.stat}</div><div class="statline">${c.statline}</div>`);
+  if (c.receipt) {
+    const r = c.receipt;
+    extras.insertAdjacentHTML('beforeend', `<div class="receipt mono"><h3>${r.head}</h3>${r.rows.map(x=>`<div class="r"><span>${x[0]}</span><span>${x[1]}</span></div>`).join('')}<div class="r t"><span>TOTAL</span><span>${r.total}</span></div></div>`);
+    const R = extras.querySelector('.receipt'), n = 22, pts = ['0 0','100% 0'];
+    for (let i = n; i >= 0; i--) pts.push(`${i/n*100}% calc(100% - ${i%2?18:0}px)`);
+    R.style.clipPath = `polygon(${pts.join(',')})`;
+  }
   if (c.sign) {
     const cx = (p.neck[0]+p.hip[0])/2 - 6, cy = (p.neck[1]+p.hip[1])/2 + 6;
     const s = el('g', { transform:`rotate(-7 ${cx} ${cy})` }, g);

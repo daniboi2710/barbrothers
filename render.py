@@ -2,6 +2,7 @@
 """Render Bar Brother content from a JSON brief.
 
   render.py post content/x.json            -> output/<slug>.jpg
+  render.py carousel content/x.json        -> output/<slug>_1.jpg, _2.jpg ...
   render.py reel content/x.json            -> output/<slug>.mp4
   render.py reel content/x.json --frames 3.5 9.1  -> test stills only
 """
@@ -35,6 +36,21 @@ def render_post(c):
         page.screenshot(path=str(path), type="jpeg", quality=95)
         browser.close()
     print(path)
+
+
+def render_carousel(c):
+    with sync_playwright() as pw:
+        browser, page = open_page(pw, 1080, 1350, "post.html")
+        for i, s in enumerate(c["slides"], 1):
+            page.goto((ROOT / "templates" / "post.html").as_uri())
+            page.evaluate("document.fonts.ready")
+            bad = page.evaluate("c => init(c)", s)
+            if bad:
+                sys.exit(f"Text overflow on slide {i}: {bad}")
+            path = OUT / f"{c['slug']}_{i}.jpg"
+            page.screenshot(path=str(path), type="jpeg", quality=95)
+            print(path)
+        browser.close()
 
 
 def synth_music(seconds, starts, path, sr=48000, bpm=104):
@@ -136,6 +152,8 @@ if __name__ == "__main__":
     content = json.loads(Path(src).read_text())
     if kind == "post":
         render_post(content)
+    elif kind == "carousel":
+        render_carousel(content)
     else:
         frames = [float(x) for x in rest[1:]] if rest and rest[0] == "--frames" else None
         render_reel(content, frames)
