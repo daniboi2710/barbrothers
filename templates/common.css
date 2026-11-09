@@ -1,0 +1,10 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --board: #15191B; --chalk: #F4F0E6; --tape: #FFD21F; }
+html, body { background: var(--board); overflow: hidden; }
+#stage { position: relative; background: var(--board); color: var(--chalk); overflow: hidden; font-family: "Inter Display", Inter, sans-serif; }
+#stage::before { content: ""; position: absolute; inset: 0; opacity: .5;
+  background: radial-gradient(ellipse 70% 55% at 45% 35%, #2B3235 0%, rgba(43,50,53,0) 72%); }
+svg.art { position: absolute; inset: 0; }
+.tag { position: absolute; background: var(--tape); color: #15191B; font-weight: 900; letter-spacing: .01em; line-height: 1; padding: 11px 18px 10px; transform: rotate(-2deg); white-space: nowrap; }
+.mono { font-family: "Courier 10 Pitch", Courier, monospace; font-weight: 700; }
+.headline { font-weight: 900; letter-spacing: -.025em; line-height: .96; text-transform: uppercase; }

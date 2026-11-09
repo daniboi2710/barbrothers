@@ -1,0 +1,65 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<style>
+#stage { width: 1080px; height: 1350px; }
+.tag { left: 56px; top: 150px; font-size: 34px; }
+.note { position: absolute; font-size: 33px; line-height: 1.08; color: var(--chalk); width: 280px; }
+.note b { color: var(--tape); font-weight: 700; display: block; }
+.copy { position: absolute; left: 56px; width: 968px; top: 856px; height: 450px; }
+.kicker { font-size: 38px; color: var(--tape); margin-bottom: 18px; }
+.headline { font-size: 146px; }
+.foot { font-size: 40px; font-weight: 700; margin-top: 30px; letter-spacing: -.01em; }
+</style>
+<div id="stage">
+  <svg class="art" id="art" viewBox="0 0 1080 1350" width="1080" height="1350"></svg>
+  <div class="tag">BAR BROTHER</div>
+  <div id="notes"></div>
+  <div class="copy" id="copy">
+    <div class="kicker mono" id="kicker"></div>
+    <div class="headline" id="headline"></div>
+    <div class="foot" id="foot"></div>
+  </div>
+</div>
+<script src="common.js"></script>
+<script>
+function init(c) {
+  kicker.textContent = c.kicker;
+  headline.innerHTML = c.headline.map(s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;')).join('<br>');
+  foot.textContent = c.footer;
+  if (c.headline_size) headline.style.fontSize = c.headline_size + 'px';
+  const svg = document.getElementById('art');
+  defs(svg);
+  const S = c.figure_scale || 1, BAR = 96, FLOOR = c.figure_floor || 810;
+  const tx = (x) => 540 + (x - 540) * S, ty = (y) => FLOOR + (y - 1180) * S;
+  drawBar(svg, BAR);
+  const g = el('g', { transform:`translate(${tx(0)} ${ty(0)}) scale(${S})` }, svg);
+  const fig = el('g', {}, g);
+  const p = POSES[c.pose];
+  drawFigure(fig, p);
+  if (c.sign) {
+    const cx = (p.neck[0]+p.hip[0])/2 - 6, cy = (p.neck[1]+p.hip[1])/2 + 6;
+    const s = el('g', { transform:`rotate(-7 ${cx} ${cy})` }, g);
+    el('rect', { x:cx-138, y:cy-64, width:276, height:136, fill:TAPE, rx:4 }, s);
+    [[-138,-64,-32],[138,-64,32]].forEach(([dx,dy,r]) => el('rect', { x:cx+dx-34, y:cy+dy-11, width:68, height:22, fill:'#C9C2AE', opacity:.9, transform:`rotate(${r} ${cx+dx} ${cy+dy})` }, s));
+    el('rect', { x:cx-128, y:cy-54, width:256, height:116, fill:'none', stroke:BOARD, 'stroke-width':5 }, s);
+    c.sign.forEach((t, i) => {
+      const n = el('text', { x:cx, y:cy-10+i*52, 'text-anchor':'middle', 'font-family':'Inter Display', 'font-weight':900, 'font-size':50, fill:BOARD, 'letter-spacing':-1 }, s);
+      n.textContent = t;
+    });
+  }
+  (c.notes || []).forEach(nt => {
+    const d = document.createElement('div');
+    d.className = 'note mono';
+    d.style.left = nt.x + 'px'; d.style.top = nt.y + 'px';
+    if (nt.align === 'right') d.style.textAlign = 'right';
+    d.innerHTML = `<b></b><span></span>`;
+    d.children[0].textContent = nt.label; d.children[1].textContent = nt.value;
+    notes.appendChild(d);
+    const [x1,y1] = nt.from, [x2,y2] = nt.to;
+    el('path', { d:`M${x1} ${y1} Q${(x1+x2)/2} ${y1+(nt.bow||-22)} ${x2} ${y2}`, stroke:CHALK, 'stroke-width':4, 'stroke-dasharray':'3 11', 'stroke-linecap':'round', fill:'none' }, svg);
+    el('circle', { cx:x2, cy:y2, r:8, fill:TAPE }, svg);
+  });
+  return assertFits('.copy');
+}
+</script>

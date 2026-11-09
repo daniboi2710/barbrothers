@@ -1,0 +1,238 @@
+{
+  "type": "reel",
+  "slug": "sample_reel_five_stages",
+  "scenes": [
+    {
+      "dur": 2.4,
+      "label": "A DOCUMENTARY:",
+      "line": [
+        "Your first pull-up",
+        "in 5 stages of grief"
+      ],
+      "size": 88,
+      "keys": [
+        [
+          0,
+          "look_up"
+        ],
+        [
+          2.4,
+          "look_up"
+        ]
+      ]
+    },
+    {
+      "dur": 2.5,
+      "label": "STAGE 1: DENIAL",
+      "line": [
+        "How hard",
+        "can it be?"
+      ],
+      "keys": [
+        [
+          0,
+          "look_up"
+        ],
+        [
+          0.3,
+          "stand_smug"
+        ],
+        [
+          2.2,
+          "stand_smug"
+        ]
+      ]
+    },
+    {
+      "dur": 2.6,
+      "label": "STAGE 2: ANGER",
+      "line": [
+        "Who put the",
+        "bar up there?"
+      ],
+      "size": 96,
+      "keys": [
+        [
+          0,
+          "stand_smug"
+        ],
+        [
+          0.4,
+          "crouch"
+        ],
+        [
+          1.0,
+          "crouch"
+        ],
+        [
+          1.3,
+          "jump"
+        ],
+        [
+          1.5,
+          "crouch"
+        ],
+        [
+          2.0,
+          "crouch"
+        ],
+        [
+          2.3,
+          "jump"
+        ]
+      ]
+    },
+    {
+      "dur": 2.8,
+      "label": "STAGE 3: BARGAINING",
+      "line": [
+        "Does 2 cm",
+        "count?"
+      ],
+      "shake": 5,
+      "keys": [
+        [
+          0,
+          "hang"
+        ],
+        [
+          0.7,
+          "hang_2cm"
+        ],
+        [
+          1.2,
+          "hang_kick"
+        ],
+        [
+          1.7,
+          "hang_2cm"
+        ],
+        [
+          2.2,
+          "hang_kick"
+        ]
+      ]
+    },
+    {
+      "dur": 2.6,
+      "label": "STAGE 4: DEPRESSION",
+      "line": [
+        "I live on",
+        "this floor now."
+      ],
+      "keys": [
+        [
+          0,
+          "hang"
+        ],
+        [
+          0.45,
+          "jump"
+        ],
+        [
+          0.8,
+          "sit_gassed"
+        ],
+        [
+          2.6,
+          "sit_gassed"
+        ]
+      ],
+      "size": 96
+    },
+    {
+      "dur": 2.5,
+      "label": "STAGE 5: ACCEPTANCE",
+      "line": [
+        "Fine. We do",
+        "it properly."
+      ],
+      "size": 96,
+      "keys": [
+        [
+          0,
+          "sit_gassed"
+        ],
+        [
+          0.65,
+          "crouch"
+        ],
+        [
+          1.1,
+          "stand_ready"
+        ],
+        [
+          2.5,
+          "stand_ready"
+        ]
+      ]
+    },
+    {
+      "dur": 5.2,
+      "label": "THE ACTUAL FIX, 3x A WEEK:",
+      "list": [
+        "<em>Dead hang:</em> 3 sets of 20 sec",
+        "<em>Slow lowers:</em> jump to the top,",
+        "take 5 sec down. 3 sets of 5."
+      ],
+      "keys": [
+        [
+          0,
+          "stand_ready"
+        ],
+        [
+          0.5,
+          "top"
+        ],
+        [
+          1.0,
+          "top"
+        ],
+        [
+          2.7,
+          "hang"
+        ],
+        [
+          2.9,
+          "top"
+        ],
+        [
+          3.3,
+          "top"
+        ],
+        [
+          5.0,
+          "hang"
+        ]
+      ]
+    },
+    {
+      "dur": 2.6,
+      "label": "SAVE THIS. THEN:",
+      "line": [
+        "Follow for",
+        "rep number one."
+      ],
+      "size": 96,
+      "keys": [
+        [
+          0,
+          "hang"
+        ],
+        [
+          0.8,
+          "top"
+        ],
+        [
+          1.1,
+          "top_happy"
+        ],
+        [
+          2.6,
+          "top_happy"
+        ]
+      ]
+    }
+  ],
+  "caption": "Every pull-up journey starts with confidence and ends with you living on the floor. Science.\n\nSave the fix for later, when you can lift your arms again. Which stage are you at? Be honest. We can tell.\n\n#calisthenics #pullups #bodyweightworkout #streetworkout #fitnesshumor"
+}

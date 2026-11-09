@@ -1,0 +1,78 @@
+<!doctype html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="common.css">
+<style>
+#stage { width: 1080px; height: 1920px; }
+/* Text stays clear of Instagram's Reels UI: top ~250, bottom ~360, right ~120. */
+.tag { left: 60px; top: 490px; font-size: 36px; }
+#copy { position: absolute; left: 60px; width: 900px; top: 1215px; height: 345px; }
+#label { font-size: 44px; color: var(--tape); margin-bottom: 14px; }
+#say { font-size: 104px; }
+#list { font-size: 62px; font-weight: 800; line-height: 1.16; letter-spacing: -.015em; }
+#list em { font-style: normal; color: var(--tape); }
+#floor { position: absolute; left: 0; right: 0; top: 1190px; height: 5px; background: var(--chalk); opacity: .3; }
+</style>
+<div id="stage">
+  <svg class="art" id="art" viewBox="0 0 1080 1920" width="1080" height="1920"></svg>
+  <div id="floor"></div>
+  <div class="tag">BAR BROTHER</div>
+  <div id="copy">
+    <div id="label" class="mono"></div>
+    <div id="say" class="headline"></div>
+    <div id="list"></div>
+  </div>
+</div>
+<script src="common.js"></script>
+<script>
+let scenes, keys = [], fig, shown = -1, total = 0;
+const easeIO = k => k < .5 ? 2*k*k : 1 - Math.pow(-2*k+2, 2)/2;
+
+function init(c) {
+  scenes = c.scenes;
+  const svg = document.getElementById('art');
+  defs(svg);
+  drawBar(svg, 300);
+  fig = el('g', {}, svg);
+  scenes.forEach(s => {
+    s.start = total;
+    s.keys.forEach(([at, pose]) => keys.push({ t: total + at, pose: POSES[pose] }));
+    total += s.dur;
+  });
+  const bad = [];
+  scenes.forEach((s, i) => { showScene(i); bad.push(...assertFits('#copy')); });
+  shown = -1;
+  return { total, starts: scenes.map(s => s.start), durs: scenes.map(s => s.dur), bad };
+}
+
+function showScene(i) {
+  const s = scenes[i];
+  label.textContent = s.label || '';
+  say.innerHTML = (s.line || []).join('<br>');
+  list.innerHTML = (s.list || []).join('<br>');
+  if (s.size) say.style.fontSize = s.size + 'px'; else say.style.fontSize = '';
+}
+
+function seek(t) {
+  let i = scenes.findIndex(s => t < s.start + s.dur);
+  if (i < 0) i = scenes.length - 1;
+  const s = scenes[i];
+  if (i !== shown) { showScene(i); shown = i; }
+  const local = t - s.start;
+  const k = Math.min(1, local / .18);
+  copy.style.transform = `translateY(${(1-easeIO(k))*34}px)`;
+  copy.style.opacity = k;
+
+  let a = keys[0], b = keys[0];
+  for (let n = 0; n < keys.length; n++) {
+    if (keys[n].t <= t) { a = keys[n]; b = keys[n+1] || keys[n]; }
+  }
+  const span = b.t - a.t;
+  let p = span > 0 ? lerpPose(a.pose, b.pose, easeIO(Math.min(1, (t-a.t)/span))) : a.pose;
+  if (s.shake) {
+    const dx = Math.sin(t*62)*s.shake, dy = Math.cos(t*47)*s.shake*.5;
+    p = JSON.parse(JSON.stringify(p));
+    for (const key in p) if (Array.isArray(p[key]) && key !== 'lH' && key !== 'rH') { p[key][0]+=dx; p[key][1]+=dy; }
+  }
+  drawFigure(fig, p);
+}
+</script>

@@ -1,0 +1,80 @@
+{
+  "type": "post",
+  "slug": "sample_post_out_of_order",
+  "kicker": "BODYWEIGHT TRAINING, EXPLAINED:",
+  "headline": [
+    "You are the",
+    "equipment."
+  ],
+  "footer": "Maintenance starts with a 20-second dead hang.",
+  "pose": "sit_gassed",
+  "sign": [
+    "OUT OF",
+    "ORDER"
+  ],
+  "notes": [
+    {
+      "x": 56,
+      "y": 292,
+      "label": "CORE:",
+      "value": "on backorder",
+      "from": [
+        230,
+        372
+      ],
+      "to": [
+        492,
+        538
+      ],
+      "bow": -10
+    },
+    {
+      "x": 56,
+      "y": 510,
+      "label": "WARRANTY:",
+      "value": "void since leg day",
+      "from": [
+        190,
+        628
+      ],
+      "to": [
+        345,
+        735
+      ],
+      "bow": 30
+    },
+    {
+      "x": 770,
+      "y": 186,
+      "label": "BAR:",
+      "value": "still waiting",
+      "from": [
+        806,
+        180
+      ],
+      "to": [
+        770,
+        116
+      ],
+      "bow": -14
+    },
+    {
+      "x": 790,
+      "y": 470,
+      "label": "GRIP:",
+      "value": "theoretical",
+      "from": [
+        870,
+        552
+      ],
+      "to": [
+        733,
+        742
+      ],
+      "bow": 40
+    }
+  ],
+  "caption": "No gym fees. No waiting for the squat rack. Slight issue: the equipment is you, and it makes a noise when it stands up.\n\nRepairs begin today. Hang from a bar for 20 seconds. That's the whole job. Tag the brother who's been out of order since 2021.\n\n#calisthenics #bodyweightworkout #pullups #streetworkout #fitnesshumor",
+  "figure_scale": 1.05,
+  "figure_floor": 818
+}
