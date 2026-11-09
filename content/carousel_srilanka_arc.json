@@ -1,0 +1,133 @@
+{
+  "type": "carousel",
+  "slug": "carousel_srilanka_arc",
+  "template": "manga.html",
+  "slides": [
+    {
+      "layout": "cover",
+      "kicker": "Bar Brother, Episode 1",
+      "title": [
+        "87% OF",
+        "LANKANS",
+        "DON'T TRAIN."
+      ],
+      "size": 122,
+      "jp": "腕立て伏せ",
+      "sfx": "ゴゴゴ",
+      "box": "87% of adults do no sport or fitness at all. WHO STEPS Sri Lanka, 2021."
+    },
+    {
+      "layout": "stats",
+      "box": "Every Lankan family's final bosses:",
+      "title": [
+        "SEENI.",
+        "PRESSURE."
+      ],
+      "size": 96,
+      "rowtop": 922,
+      "rowgap": 76,
+      "rowsize": 52,
+      "rows": [
+        [
+          "RAISED BLOOD SUGAR",
+          "1 in 7"
+        ],
+        [
+          "RAISED BLOOD PRESSURE",
+          "1 in 3"
+        ],
+        [
+          "OVERWEIGHT OR OBESE",
+          "2 in 5"
+        ]
+      ],
+      "source": "Sri Lankan adults, WHO STEPS 2021."
+    },
+    {
+      "layout": "burst",
+      "bg": "#E4002B",
+      "lines": "#000",
+      "seed": 21,
+      "cy": 440,
+      "rx": 500,
+      "ry": 320,
+      "big": "LESS<br>MUSCLE",
+      "bigsize": 148,
+      "box": "The plot twist:",
+      "jp": "筋肉",
+      "title": [
+        "YOUR MUSCLE",
+        "EATS SEENI."
+      ],
+      "titley": 800,
+      "size": 112,
+      "body": "Research finds South Asians tend to carry less muscle, and low muscle is linked to higher diabetes risk. Alkhayl et al., Sci Rep, 2022 (small study)."
+    },
+    {
+      "layout": "burst",
+      "bg": "#000",
+      "lines": "#4a4a4a",
+      "seed": 33,
+      "cy": 470,
+      "rx": 500,
+      "ry": 310,
+      "big": "10-17%",
+      "bigsize": 200,
+      "box": "Power-up detected:",
+      "title": [
+        "LOWER RISK."
+      ],
+      "titley": 830,
+      "size": 112,
+      "body": "30-60 mins of strength work a week. Shorter than your bus ride to Fort. Linked to less early death, heart disease, cancer and diabetes. Momma et al., BJSM, 2022 (observational)."
+    },
+    {
+      "layout": "levels",
+      "head": "WORKS IN A POWER CUT.",
+      "size": 72,
+      "rows": [
+        [
+          "LV.1",
+          "WALL",
+          "Beside the almirah."
+        ],
+        [
+          "LV.2",
+          "TABLE",
+          "Amma's dining table."
+        ],
+        [
+          "LV.3",
+          "KNEES",
+          "On the verandah."
+        ],
+        [
+          "LV.4",
+          "FLOOR",
+          "Cost: Rs. 0. Final form."
+        ]
+      ]
+    },
+    {
+      "layout": "finale",
+      "title": [
+        "10 MINS.",
+        "3 DAYS."
+      ],
+      "size": 150,
+      "body": "That's your 30 mins. Do it before the kottu.",
+      "sfx": "ドン",
+      "next": "Next episode: follow @barbrothers.lk",
+      "end": "続く"
+    }
+  ],
+  "alt_text": [
+    "Manga cover of a spiky-haired hero doing a push-up. Headline: 87% of Lankans don't train.",
+    "Close-up of an intense manga eye. Seeni. Pressure. Raised blood sugar 1 in 7, raised blood pressure 1 in 3, overweight or obese 2 in 5 Sri Lankan adults.",
+    "Manga burst reading Less muscle. Your muscle eats seeni. South Asians tend to carry less muscle, linked to higher diabetes risk.",
+    "Manga burst reading 10-17% lower risk with 30-60 minutes of strength work a week.",
+    "Four levels of push-up: wall, table, knees and floor. Works in a power cut.",
+    "Hero at the bottom of a push-up cracking the floor. 10 mins, 3 days. Follow @barbrothers.lk."
+  ],
+  "caption": "Machan, 87% of Sri Lankan adults do no sport or fitness at all. Meanwhile seeni and pressure are running the family WhatsApp group.\n\nThe fix doesn't need a gym, a contract or even electricity. 10 minutes of push-ups, 3 days a week. Start on the wall if you have to. Nobody's judging except Amma.\n\nTag the machan who's been starting \"from Monday\" since the last World Cup.\n\nSources: WHO STEPS Sri Lanka 2021; Momma et al., BJSM 2022; Alkhayl et al., Sci Rep 2022. These show links, not guarantees. Got a heart condition or high pressure? Check with your doctor first.\n\n#SriLanka #calisthenics #pushups #srilankafitness #trainingarc"
+}

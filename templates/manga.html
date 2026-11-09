@@ -123,7 +123,8 @@ const layouts={
   T(c.box,'box',{left:F(50),top:F(50),transform:'rotate(-1.5deg)'});
   panel([[28,678],[1052,588],[1052,1322],[28,1322]],'#000',g=>focus(g,540,960,520,1100,120,5,'#3b3b3b'));
   c.title.forEach((t,i)=>T(t,'t white',{left:F(70),top:F(700+i*104),fontSize:F(c.size)}));
-  c.rows.forEach((r,i)=>{const d=T(`<span>${r[0]}</span><span style="color:${RED}">${r[1]}</span>`,'row white',{top:F(935+i*82),left:F(70),right:F(70),fontSize:F(62)});});
+  c.rows.forEach((r,i)=>{const d=T(`<span>${r[0]}</span><span style="color:${RED}">${r[1]}</span>`,'row white',{top:F((c.rowtop||935)+i*(c.rowgap||82)),left:F(70),right:F(70),fontSize:F(c.rowsize||62)});});
+  if(c.source) T(c.source,'small white',{position:'absolute',left:F(70),bottom:F(40)});
  },
  burst(c){
   panel([[28,28],[1052,28],[1052,1322],[28,1322]],c.bg,g=>{
@@ -132,10 +133,11 @@ const layouts={
    if(c.tone) el('rect',{x:0,y:1090,width:1080,height:260,fill:'url(#toneW)'},g);
   });
   T(c.box,'box',{left:F(50),top:F(50),transform:'rotate(-1.5deg)'});
-  const b=T(c.big,'t black',{left:0,right:0,textAlign:'center',top:F(c.cy-c.bigsize*.52),fontSize:F(c.bigsize)});
+  const lines=(c.big.match(/<br>/g)||[]).length+1;
+  T(c.big,'t black',{left:0,right:0,textAlign:'center',top:F(c.cy-lines*c.bigsize*.5),fontSize:F(c.bigsize)});
   if(c.jp) T(c.jp,'jp',{right:F(60),top:F(60),fontSize:F(92),color:'#fff',WebkitTextStroke:'9px #000',paintOrder:'stroke fill',transform:'rotate(5deg)'});
   c.title.forEach((t,i)=>T(t,'t white',{left:F(64),top:F(c.titley+i*c.size*1.02),fontSize:F(c.size),WebkitTextStroke:'12px #000',paintOrder:'stroke fill'}));
-  if(c.body) T(c.body,'box',{left:F(56),right:F(56),bottom:F(52),fontSize:F(38)});
+  if(c.body) T(c.body,'box',{left:F(56),right:F(56),bottom:F(88),fontSize:F(38)});
  },
  levels(c){
   T(c.head,'t black',{left:F(40),top:F(38),fontSize:F(c.size)});
