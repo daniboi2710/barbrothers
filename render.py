@@ -106,11 +106,42 @@ def synth_music(seconds, starts, path, sr=48000, bpm=104):
         w.writeframes(pcm.tobytes())
 
 
+def synth_pad(seconds, starts, path, sr=48000):
+    """Original soft ambient bed with a light tick on each scene change."""
+    n = int(seconds * sr)
+    t = np.arange(n) / sr
+    mix = np.zeros(n)
+    for f, g in [(55.0, .34), (110.0, .2), (164.81, .13), (220.0, .08), (329.63, .05)]:
+        lfo = .75 + .25 * np.sin(2 * np.pi * (.07 + f / 4000) * t)
+        mix += g * lfo * np.sin(2 * np.pi * f * t)
+    beat = 60 / 84
+    for k in range(int(seconds / beat)):
+        i = int(k * beat * sr)
+        tp = np.arange(int(.5 * sr)) / sr
+        s = np.sin(2 * np.pi * 52 * tp) * np.exp(-tp * 9) * .3
+        end = min(n, i + len(s))
+        mix[i:end] += s[: end - i]
+    for st in starts[1:]:
+        i = int(st * sr)
+        tc = np.arange(int(.07 * sr)) / sr
+        s = np.sin(2 * np.pi * 1200 * tc) * np.exp(-tc * 70) * .18
+        end = min(n, i + len(s))
+        mix[i:end] += s[: end - i]
+    fade = int(1.2 * sr)
+    mix[:fade] *= np.linspace(0, 1, fade)
+    mix[-fade:] *= np.linspace(1, 0, fade)
+    mix = np.tanh(mix) / np.max(np.abs(np.tanh(mix))) * .6
+    pcm = (mix * 32767).astype(np.int16)
+    with wave.open(str(path), "wb") as w:
+        w.setnchannels(1); w.setsampwidth(2); w.setframerate(sr)
+        w.writeframes(pcm.tobytes())
+
+
 def render_reel(c, frames=None):
     work = OUT / f".{c['slug']}"
     work.mkdir(exist_ok=True)
     with sync_playwright() as pw:
-        browser, page = open_page(pw, 1080, 1920, "reel.html")
+        browser, page = open_page(pw, 1080, 1920, c.get("template", "reel.html"))
         info = page.evaluate("c => init(c)", c)
         if info["bad"]:
             sys.exit(f"Text overflow: {info['bad']}")
@@ -139,7 +170,7 @@ def render_reel(c, frames=None):
     listing = work / "list.txt"
     listing.write_text("".join(f"file '{p.resolve()}'\n" for p in parts))
     wav = work / "music.wav"
-    synth_music(info["total"], info["starts"], wav)
+    (synth_pad if c.get("music") == "pad" else synth_music)(info["total"], info["starts"], wav)
     out = OUT / f"{c['slug']}.mp4"
     subprocess.check_call(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", str(listing), "-i", str(wav),
                            "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-shortest",
