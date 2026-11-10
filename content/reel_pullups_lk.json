@@ -1,29 +1,125 @@
 {
   "type": "reel",
-  "slug": "reel_pullups_lk",
+  "slug": "reel_pullups_lk_v2",
   "template": "hud.html",
   "music": "pad",
   "minimal": true,
   "scenes": [
-    { "dur": 7.2, "draw": "bus",
-      "beats": [ { "at": 0, "small": "Every Lankan has trained for this.", "big": "40 minutes|hanging on the *bus*." },
-                 { "at": 3.6, "small": "You've got the grip.", "big": "Now *pull*." } ] },
-    { "dur": 7.4, "draw": "back",
-      "beats": [ { "at": 0, "small": "Meanwhile, your back:", "big": "Bent over all day.|It's *begging*." },
-                 { "at": 3.2, "small": "Pull-ups train your", "big": "*back*, *arms*|and *grip*." } ] },
-    { "dur": 8.4, "draw": "grip", "source": "LEONG ET AL., LANCET, 2015. OBSERVATIONAL",
-      "beats": [ { "at": 0, "small": "140,000 adults in 17 countries, incl. India:", "big": "every *5 kg* weaker|grip..." },
-                 { "at": 3.4, "small": "...was linked to", "big": "*16%* higher|risk of death." } ] },
-    { "dur": 9.6, "draw": "bar",
-      "beats": [ { "at": 0, "small": "Can't do one yet? Normal.", "big": "Level 1:|*Dead hang*" },
-                 { "at": 2.4, "small": "Can't do one yet? Normal.", "big": "Level 2:|*Slow lowers*" },
-                 { "at": 4.8, "small": "Can't do one yet? Normal.", "big": "Level 3:|*Half reps*" },
-                 { "at": 7.2, "small": "Can't do one yet? Normal.", "big": "Level 4:|*Full pull-up*" } ] },
-    { "dur": 8.2, "draw": "load",
-      "beats": [ { "at": 0, "small": "Your plan:", "big": "*3 days* a week.|Any park bar works." },
-                 { "at": 4.2, "small": "Your first pull-up is", "big": "*loading*..." } ] },
-    { "dur": 3.4, "draw": "end",
-      "beats": [ { "at": 0, "small": "For your first rep,", "big": "Follow|*@barbrothers.lk*" } ] }
+    {
+      "dur": 7.2,
+      "draw": "bus",
+      "beats": [
+        {
+          "at": 0,
+          "small": "Every Lankan has trained for this.",
+          "big": "40 minutes|hanging on the *bus*."
+        },
+        {
+          "at": 3.6,
+          "small": "You've got the grip.",
+          "big": "Now *pull*."
+        }
+      ]
+    },
+    {
+      "dur": 7.4,
+      "draw": "back",
+      "beats": [
+        {
+          "at": 0,
+          "small": "Meanwhile, your back:",
+          "big": "Bent over all day.|It's *begging*."
+        },
+        {
+          "at": 3.2,
+          "small": "Pull-ups train your",
+          "big": "*back*, *arms*|and *grip*."
+        }
+      ]
+    },
+    {
+      "dur": 8.4,
+      "draw": "grip",
+      "source": "LEONG ET AL., LANCET, 2015. OBSERVATIONAL",
+      "beats": [
+        {
+          "at": 0,
+          "small": "140,000 adults in 17 countries, incl. India:",
+          "big": "every *5 kg* weaker|grip..."
+        },
+        {
+          "at": 3.4,
+          "small": "...was linked to",
+          "big": "*16%* higher|risk of death."
+        }
+      ]
+    },
+    {
+      "dur": 9.6,
+      "draw": "bar",
+      "beats": [
+        {
+          "at": 0,
+          "small": "Can't do one yet? Normal.",
+          "big": "Level 1:|*Dead hang*"
+        },
+        {
+          "at": 2.4,
+          "small": "Can't do one yet? Normal.",
+          "big": "Level 2:|*Slow lowers*"
+        },
+        {
+          "at": 4.8,
+          "small": "Can't do one yet? Normal.",
+          "big": "Level 3:|*Half reps*"
+        },
+        {
+          "at": 7.2,
+          "small": "Can't do one yet? Normal.",
+          "big": "Level 4:|*Full pull-up*"
+        }
+      ]
+    },
+    {
+      "dur": 8.2,
+      "draw": "load",
+      "beats": [
+        {
+          "at": 0,
+          "small": "Your plan:",
+          "big": "*3 days* a week.|Any park bar works."
+        },
+        {
+          "at": 4.2,
+          "small": "Your first pull-up is",
+          "big": "*loading*..."
+        }
+      ]
+    },
+    {
+      "dur": 3.4,
+      "draw": "end",
+      "beats": [
+        {
+          "at": 0,
+          "small": "For your first rep,",
+          "big": "Follow|*@barbrothers.lk*"
+        }
+      ]
+    }
   ],
-  "caption": "40 minutes hanging on the bus every day and still zero pull-ups? Machan, you've done the hard part.\n\nDead hangs, slow lowers, half reps. 3 days a week. Rep 1 is loading.\n\nTag the one who'd die if the bus handle broke.\n\n#SriLanka #pullups #calisthenics #srilankafitness #bodyweightworkout"
+  "caption": "40 minutes hanging on the bus every day and still zero pull-ups? Machan, you've done the hard part.\n\nDead hangs, slow lowers, half reps. 3 days a week. Rep 1 is loading.\n\nTag the one who'd die if the bus handle broke.\n\n#SriLanka #pullups #calisthenics #srilankafitness #bodyweightworkout",
+  "nogrid": true,
+  "theme": {
+    "BG": "#16070B",
+    "INK": "#F7EEE2",
+    "MUTE": "#B49A8F",
+    "DIM": "#3A1D24",
+    "ACC": "#FFA41B",
+    "PANEL": "#2A1015",
+    "LINE": "#5A3A40",
+    "RULE": "#2E161B",
+    "WARN": "#F25C54",
+    "GLOW": "#4A2A10"
+  }
 }
