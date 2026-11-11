@@ -1,0 +1,137 @@
+{
+  "type": "reel",
+  "slug": "reel_pushups_brainbrawn",
+  "template": "hud.html",
+  "music": "pad",
+  "scenes": [
+    {
+      "ch": "87%",
+      "dur": 7,
+      "draw": "dots",
+      "source": "WHO STEPS SRI LANKA, 2021",
+      "beats": [
+        {
+          "at": 0,
+          "small": "In Sri Lanka,",
+          "big": "*87%* of adults|don't exercise."
+        },
+        {
+          "at": 3.6,
+          "keep": 1,
+          "small": "No sport. No gym. No workouts.",
+          "big": "*87%* of adults|don't exercise."
+        }
+      ]
+    },
+    {
+      "ch": "SEENI",
+      "dur": 8.2,
+      "draw": "ratios",
+      "source": "SRI LANKAN ADULTS. WHO STEPS, 2021",
+      "beats": [
+        {
+          "at": 0,
+          "small": "And it shows.",
+          "big": "*Seeni* and *pressure*|are common."
+        }
+      ]
+    },
+    {
+      "ch": "MUSCLE",
+      "dur": 10.4,
+      "draw": "muscle",
+      "source": "ALKHAYL ET AL., SCI REP, 2022. SMALL STUDY",
+      "beats": [
+        {
+          "at": 0,
+          "small": "Here's why muscle matters.",
+          "big": "It uses *sugar*|from your blood."
+        },
+        {
+          "at": 4.2,
+          "small": "South Asians",
+          "big": "tend to have|*less muscle*."
+        },
+        {
+          "at": 7.2,
+          "small": "So",
+          "big": "building it|is *worth it*."
+        }
+      ]
+    },
+    {
+      "ch": "RISK",
+      "dur": 9.4,
+      "draw": "risk",
+      "source": "MOMMA ET AL., BJSM, 2022. OBSERVATIONAL",
+      "beats": [
+        {
+          "at": 0,
+          "small": "Strength training is linked to",
+          "big": "*10–17%* lower risk of"
+        },
+        {
+          "at": 5,
+          "small": "The biggest benefit came from",
+          "big": "*30–60 minutes*|a week."
+        }
+      ]
+    },
+    {
+      "ch": "START",
+      "dur": 9.6,
+      "draw": "levels",
+      "beats": [
+        {
+          "at": 0,
+          "small": "Start at any level. No gym needed.",
+          "big": "Level 1: *Wall*"
+        },
+        {
+          "at": 2.4,
+          "small": "Start at any level. No gym needed.",
+          "big": "Level 2: *Table*"
+        },
+        {
+          "at": 4.8,
+          "small": "Start at any level. No gym needed.",
+          "big": "Level 3: *Knees*"
+        },
+        {
+          "at": 7.2,
+          "small": "Start at any level. No gym needed.",
+          "big": "Level 4: *Floor*"
+        }
+      ]
+    },
+    {
+      "ch": "PLAN",
+      "dur": 8,
+      "draw": "ring",
+      "beats": [
+        {
+          "at": 0,
+          "small": "Your plan:",
+          "big": "*10 minutes*,|3 days a week."
+        },
+        {
+          "at": 4.8,
+          "small": "That's a good start.",
+          "big": "Do it before|the *kottu*."
+        }
+      ]
+    },
+    {
+      "dur": 3.4,
+      "draw": "end",
+      "beats": [
+        {
+          "at": 0,
+          "small": "For more,",
+          "big": "Follow|*Brain and Brawn*"
+        }
+      ]
+    }
+  ],
+  "caption": "87% of Sri Lankan adults don't exercise. And seeni and pressure are common in our families.\n\nThe good news is you don't need a gym. Ten minutes of push-ups, 3 days a week, is a good start. Begin on a wall if you need to.\n\nTag someone who keeps saying \"from Monday\".\n\nSources: WHO STEPS Sri Lanka 2021; Momma et al., BJSM 2022; Alkhayl et al., Sci Rep 2022. These show links, not guarantees. If you have a heart condition or high blood pressure, talk to your doctor first.\n\n#SriLanka #calisthenics #pushups #srilankafitness #bodyweightworkout"
+}
