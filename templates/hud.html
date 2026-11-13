@@ -56,12 +56,13 @@ function reveal(s,bi,l){
 function apply(w,k){k=clamp(k);w.style.opacity=k;w.style.filter=k<1?`blur(${(1-k)*10}px)`:'none';w.style.transform=`translateY(${(1-ease(k))*12}px)`;}
 function source(s){if(s.source)T(72,1516,s.source,{mono:1,size:25,fill:MUTE});}
 const PB=760;
+function rng(s){return()=>{s=(s*1664525+1013904223)%4294967296;return s/4294967296;};}
 const D={
- dots(l){const R=[];let v=7;for(let i=0;i<100;i++){v=(v*53+11)%101;R.push(v);}const lit=new Set(R.slice(0,13));
+ dots(l){const R=[];let v=7;for(let i=0;i<100;i++){v=(v*53+11)%101;R.push(v);}const s0=arguments[1]||{},lit=new Set(R.slice(0,s0.lit||13));
   for(let i=0;i<100;i++){const c=i%10,r=Math.floor(i/10),x=150+c*82,y=668+r*82,k=clamp((l-.4-i*.02)/.2),on=lit.has(i),b=ease((l-3.2-(i%13)*.05)/.3);
     if(on&&b>0)el('circle',{cx:x,cy:y,r:30*b+8,fill:ACC,opacity:.13*b});
     el('circle',{cx:x,cy:y,r:lerp(8,23,ease(k)),fill:on&&b>0?ACC:'none',stroke:on&&b>0?ACC:LINE,'stroke-width':3,opacity:k});}
-  const k=ease((l-3.6)/.4);T(72,1486,'13 EXERCISE',{mono:1,size:30,fill:ACC,op:k,w:700});T(888,1486,"87 DON'T",{mono:1,size:30,fill:MUTE,op:k,anchor:'end',w:700});},
+  const k=ease((l-3.6)/.4);const lb=s0.labels||['13 EXERCISE',"87 DON'T"];T(72,1486,lb[0],{mono:1,size:30,fill:ACC,op:k,w:700});T(888,1486,lb[1],{mono:1,size:30,fill:MUTE,op:k,anchor:'end',w:700});},
  ratios(l){[[1.4,'1 in 7','have high blood sugar',1,7],[3.3,'1 in 3','have high blood pressure',1,3],[5.2,'2 in 5','are overweight',2,5]].forEach(([at,r,lab,n,of],i)=>{
    const y=700+i*266,k=ease((l-at)/.45);if(k<=0)return;
    T(72,y+64,r,{size:104,w:700,fill:ACC,op:k});T(72,y+128,lab,{size:46,w:500,fill:INK,op:k});
@@ -124,6 +125,38 @@ const D={
     const m=(a0+a1)/2;T(cx+R*Math.cos(m),cy+R*Math.sin(m)+11,d,{mono:1,size:30,anchor:'middle',fill:k>.5?BG:MUTE,w:700});});
   T(cx,cy+34,String(on*10),{size:190,w:700,anchor:'middle'});T(cx,cy+96,'MIN A WEEK',{mono:1,size:30,anchor:'middle',fill:MUTE});},
  end(l){},
+ glass(l){const cx=540,t=820,b=1330,wt=210,wb=165,k0=ease((l-.2)/.5),lv=ease((l-.6)/2.6)*.72,W=y=>lerp(wt,wb,(y-t)/(b-t));
+  const top=b-(b-t)*lv;
+  if(lv>0)el('path',{d:`M${cx-W(top)+10} ${top} L${cx+W(top)-10} ${top} L${cx+wb-10} ${b-12} L${cx-wb+10} ${b-12} Z`,fill:ACC,opacity:.85});
+  [[-60,0,18],[50,-70,-12],[-10,-150,8]].forEach(([dx,dy,r])=>{const y=top+60+dy;if(lv>.25)el('rect',{x:cx+dx-48,y:y-48,width:96,height:96,rx:18,fill:INK,opacity:.25,transform:`rotate(${r} ${cx+dx} ${y})`});});
+  const rr=rng(4);for(let i=0;i<14;i++){const ph=(l*.5+rr())%1,x=cx+(rr()-.5)*2*wb*.8,y=lerp(b-30,top+14,ph);if(lv>.1&&y>top+10)el('circle',{cx:x,cy:y,r:4+rr()*5,fill:INK,opacity:.35});}
+  el('path',{d:`M${cx-wt} ${t} L${cx-wb} ${b} L${cx+wb} ${b} L${cx+wt} ${t}`,fill:'none',stroke:INK,'stroke-width':8,'stroke-linejoin':'round',opacity:k0});
+  ln(cx-wb,b,cx+wb,b,INK,14,k0);},
+ cal(l){const k0=ease((l-.2)/.4),v=Math.round(1400*ease((l-.4)/2.6)/10)*10;
+  T(540,1000,v.toLocaleString('en-US'),{size:210,w:700,anchor:'middle',fill:INK,op:k0});
+  T(540,1070,'CALORIES IN A BOTTLE OF ARRACK',{mono:1,size:30,anchor:'middle',fill:MUTE,op:k0});
+  for(let i=0;i<20;i++){const on=v>=(i+1)*70,x=72+i*47;el('rect',{x,y:1140,width:39,height:70,rx:8,fill:on?ACC:'none',stroke:on?ACC:LINE,'stroke-width':3,opacity:k0});}
+  const kb=ease((l-4.2)/.5);if(kb>0){el('rect',{x:72,y:1250,width:936,height:110,rx:18,fill:'none',stroke:WARN,'stroke-width':4,'stroke-dasharray':'14 12',opacity:kb});T(540,1322,'+ BITES: NOT INCLUDED',{mono:1,size:40,anchor:'middle',fill:WARN,op:kb,w:700});}},
+ bars(l){[['PROTEIN AFTER TRAINING',100,.6,ACC],['PROTEIN + 12 DRINKS',76,1.6,WARN],['CARBS + 12 DRINKS',63,2.4,WARN]].forEach(([s,v,at,c],i)=>{
+   const y=780+i*210,k=ease((l-at)/.4),f=ease((l-at-.2)/.9);if(k<=0)return;
+   T(72,y,s,{mono:1,size:30,fill:MUTE,op:k});T(1008,y,v+'%',{mono:1,size:40,fill:INK,anchor:'end',op:k,w:700});
+   el('rect',{x:72,y:y+28,width:936,height:70,rx:35,fill:'none',stroke:LINE,'stroke-width':3,opacity:k});
+   el('rect',{x:80,y:y+36,width:Math.max(0,920*v/100*f),height:54,rx:27,fill:c,opacity:k});});
+  T(72,1440,'MUSCLE BUILDING AFTER EXERCISE',{mono:1,size:26,fill:MUTE,op:ease((l-.6)/.4)});},
+ sleep(l){const Y={W:780,R:880,L:980,D:1080},x0=200,x1=1008,k0=ease((l-.2)/.4),m=ease((l-4.2)/1.2);
+  const N=[['W',.3],['L',.6],['D',1.2],['L',.5],['R',.6],['L',.6],['D',.8],['L',.5],['R',.9],['L',.6],['R',1.1],['L',.4],['R',1.2],['W',.3]];
+  const A=[['W',.3],['L',.4],['D',1.9],['L',.8],['R',.1],['L',.9],['D',.9],['L',.8],['R',.3],['L',.9],['R',.4],['L',.7],['R',.5],['W',1.1]];
+  [['AWAKE','W'],['REM','R'],['LIGHT','L'],['DEEP','D']].forEach(([s,key])=>T(72,Y[key]+10,s,{mono:1,size:26,fill:key==='R'?ACC:MUTE,op:k0}));
+  const d=N.map((s,i)=>[s[0],lerp(s[1],A[i][1],m)]),tot=d.reduce((a,s)=>a+s[1],0),draw=clamp((l-.4)/2.4);
+  let x=x0,prev=null;d.forEach(([st,dur])=>{const w=(x1-x0)*dur/tot,lim=x0+(x1-x0)*draw;if(x>=lim){x+=w;return;}const xe=Math.min(x+w,lim);
+   if(prev)ln(x,Y[prev],x,Y[st],MUTE,4,k0);prev=st;
+   ln(x,Y[st],xe,Y[st],st==='R'?(m>.5?WARN:ACC):INK,st==='R'?18:6,k0);x+=w;});
+  T(1008,1190,'ONE NIGHT',{mono:1,size:26,fill:MUTE,anchor:'end',op:k0});},
+ checks(l){[['Train first',.5],['Water between drinks',1.5],['Fewer rounds',2.5]].forEach(([s,at],i)=>{const y=820+i*170,k=ease((l-at)/.35),tk=ease((l-at-.3)/.35);if(k<=0)return;
+   el('rect',{x:72,y:y-54,width:90,height:90,rx:18,fill:tk>.5?ACC:'none',stroke:ACC,'stroke-width':5,opacity:k});
+   if(tk>0)el('path',{d:`M92 ${y-8} L112 ${y+14} L144 ${y-28}`,fill:'none',stroke:BG,'stroke-width':10,'stroke-linecap':'round','stroke-linejoin':'round','stroke-dasharray':90,'stroke-dashoffset':90*(1-tk)});
+   T(200,y+10,s,{size:66,w:600,op:k});});},
+
  _pull(k,bx){const B=PB,Sy=B+200-165*k,A=230,arms=[],limbs=[];
   [-1,1].forEach(s=>{const H=[bx+s*170,B],S=[bx+s*75,Sy],d=Math.hypot(S[0]-H[0],S[1]-H[1]),M=[(S[0]+H[0])/2,(S[1]+H[1])/2],hh=Math.sqrt(Math.max(0,A*A/4-d*d/4)),v=[(H[0]-S[0])/d,(H[1]-S[1])/d];
    let E=[M[0]-v[1]*hh,M[1]+v[0]*hh];if((E[0]-M[0])*s<0)E=[M[0]+v[1]*hh,M[1]-v[0]*hh];

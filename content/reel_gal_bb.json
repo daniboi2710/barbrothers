@@ -1,0 +1,28 @@
+{
+  "type": "reel",
+  "slug": "reel_gal_brainbrawn",
+  "template": "hud.html",
+  "music": "pad",
+  "minimal": true,
+  "nogrid": true,
+  "theme": {"BG":"#16070B","INK":"#F7EEE2","MUTE":"#B49A8F","DIM":"#3A1D24","ACC":"#FFA41B","PANEL":"#2A1015","LINE":"#5A3A40","RULE":"#2E161B","WARN":"#F25C54","GLOW":"#4A2A10"},
+  "scenes": [
+    { "dur": 6.4, "draw": "glass",
+      "beats": [ { "at": 0, "small": "The Lankan fitness plan:", "big": "Leg day on *Saturday*.|Gal on Saturday *night*." } ] },
+    { "dur": 7.2, "draw": "dots", "lit": 43, "labels": ["43 DRINK", "57 DON'T"], "source": "WHO STEPS SRI LANKA, 2021",
+      "beats": [ { "at": 0, "small": "You're not alone, machan.", "big": "*43%* of Sri Lankan|men drink." } ] },
+    { "dur": 7.6, "draw": "cal",
+      "beats": [ { "at": 0, "small": "One bottle of arrack:", "big": "about *1,400*|calories." },
+                 { "at": 4.2, "small": "That's before", "big": "the *bites*." } ] },
+    { "dur": 8.6, "draw": "bars", "source": "PARR ET AL., PLOS ONE, 2014. 8 MEN",
+      "beats": [ { "at": 0, "small": "After a hard workout, a big night", "big": "cut muscle building|by *24–37%*." } ] },
+    { "dur": 8.4, "draw": "sleep", "source": "GARDINER ET AL., SLEEP MED REV, 2025",
+      "beats": [ { "at": 0, "small": "Even 2 drinks", "big": "disrupt your|*REM sleep*." },
+                 { "at": 4.2, "small": "And bad sleep means", "big": "slower *recovery*." } ] },
+    { "dur": 7.2, "draw": "checks",
+      "beats": [ { "at": 0, "small": "Not saying quit. Saying:", "big": "Drink *smarter*." } ] },
+    { "dur": 3.4, "draw": "end",
+      "beats": [ { "at": 0, "small": "For more,", "big": "Follow|*Brain and Brawn*" } ] }
+  ],
+  "caption": "Leg day Saturday. Gal Saturday night. Gains? Gone by Sunday.\n\nTrain first, water between rounds, and maybe don't finish the bottle, machan.\n\nTag the one who says arrack is a recovery drink.\n\n#SriLanka #fitness #calisthenics #srilankafitness #brainandbrawn"
+}
