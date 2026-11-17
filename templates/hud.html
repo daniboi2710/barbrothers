@@ -125,6 +125,28 @@ const D={
     const m=(a0+a1)/2;T(cx+R*Math.cos(m),cy+R*Math.sin(m)+11,d,{mono:1,size:30,anchor:'middle',fill:k>.5?BG:MUTE,w:700});});
   T(cx,cy+34,String(on*10),{size:190,w:700,anchor:'middle'});T(cx,cy+96,'MIN A WEEK',{mono:1,size:30,anchor:'middle',fill:MUTE});},
  end(l){},
+ plate(l){const cx=540,cy=1090,R=340,k0=ease((l-.15)/.4),g=ease((l-.5)/2.2),rr=250*g,r=rng(11);
+  el('circle',{cx,cy,r:R,fill:PANEL,stroke:INK,'stroke-width':8,opacity:k0});el('circle',{cx,cy,r:R-52,fill:'none',stroke:LINE,'stroke-width':3,opacity:k0});
+  if(rr>2){el('circle',{cx,cy,r:rr,fill:INK});for(let i=0;i<9;i++){const a=i*40*Math.PI/180+.3;el('circle',{cx:cx+Math.cos(a)*rr*.72,cy:cy+Math.sin(a)*rr*.72,r:rr*(.36+r()*.1),fill:INK});}
+   for(let i=0;i<70;i++){const a=r()*6.283,d=Math.sqrt(r())*rr*.95,x=cx+Math.cos(a)*d,y=cy+Math.sin(a)*d,t=r()*3.14;ln(x,y,x+Math.cos(t)*13,y+Math.sin(t)*13,MUTE,5,.55);}}
+  T(cx,cy+22,'RICE',{mono:1,size:64,fill:BG,anchor:'middle',w:700,op:ease((l-2.2)/.4)});
+  const kc=ease((l-3.7)/.45);if(kc>0){[[-64,ACC],[-50,WARN],[-36,ACC]].forEach(([deg,c],i)=>{const a=deg*Math.PI/180;el('circle',{cx:cx+Math.cos(a)*312,cy:cy+Math.sin(a)*312,r:20*ease((l-3.7-i*.12)/.3),fill:c});});
+   const a=-50*Math.PI/180,px=cx+Math.cos(a)*340,py=cy+Math.sin(a)*340;ln(px+8,py-8,px+70,py-78,ACC,4,kc);T(px+80,py-92,'CURRY',{mono:1,size:30,fill:ACC,op:kc,w:700,anchor:'middle'});}},
+ donut(l,s){const cx=540,cy=1080,R=270,W=84,t2=(s.beats[1]||{at:99}).at,k0=ease((l-.2)/.4),A=(f0,f1)=>{const a0=-Math.PI/2+f0*6.2832,a1=-Math.PI/2+f1*6.2832;return `M${cx+R*Math.cos(a0)} ${cy+R*Math.sin(a0)} A${R} ${R} 0 ${f1-f0>.5?1:0} 1 ${cx+R*Math.cos(a1)} ${cy+R*Math.sin(a1)}`;};
+  el('circle',{cx,cy,r:R,fill:'none',stroke:DIM,'stroke-width':W,opacity:k0});
+  const c=ease((l-.5)/1.8)*.73,pr=ease((l-t2-.2)/.9)*.11;
+  if(c>.002)el('path',{d:A(0,c),fill:'none',stroke:INK,'stroke-width':W});
+  if(pr>.002)el('path',{d:A(.73,.73+pr),fill:'none',stroke:ACC,'stroke-width':W});
+  const two=l>=t2;T(cx,cy+52,(two?Math.round(pr*100):Math.round(c*100))+'%',{size:170,w:700,anchor:'middle',fill:two?ACC:INK,op:k0});
+  T(cx,cy+112,two?'PROTEIN':'CARBS',{mono:1,size:30,anchor:'middle',fill:MUTE,op:k0});
+  T(cx,cy+R+130,'SHARE OF DAILY CALORIES',{mono:1,size:26,anchor:'middle',fill:MUTE,op:k0});},
+ hbars(l,s){const it=s.items,n=it.length,gap=n>3?150:230,h=n>3?48:70,C={acc:ACC,warn:WARN,ink:INK,mute:MUTE};
+  it.forEach(([lab,v,vl,c,at],i)=>{const y=790+i*gap,k=ease((l-at)/.4),f=ease((l-at-.2)/.9);if(k<=0)return;
+   T(72,y,lab,{mono:1,size:30,fill:MUTE,op:k});T(1008,y,vl,{mono:1,size:40,fill:INK,anchor:'end',op:k,w:700});
+   el('rect',{x:72,y:y+26,width:936,height:h+16,rx:(h+16)/2,fill:'none',stroke:LINE,'stroke-width':3,opacity:k});
+   el('rect',{x:80,y:y+34,width:Math.max(h,920*v/s.max*f),height:h,rx:h/2,fill:C[c],opacity:k});});
+  if(s.footer)T(72,1440,s.footer,{mono:1,size:26,fill:MUTE,op:ease((l-.6)/.4)});},
+
  walk(l){const G=1390,w=l*2*Math.PI*.85,bob=Math.abs(Math.sin(w))*10,Hp=[540,1080-bob],N=[556,830-bob],C=[580,744-bob],deg=Math.PI/180;
   const k0=ease((l-.1)/.4);for(let i=0;i<9;i++){const x=((i*140-l*330)%1260+1260)%1260-90;ln(x,G+30,x+60,G+30,LINE,6,k0);}ln(72,G+6,1008,G+6,LINE,4,k0);
   const leg=(ph)=>{const th=28*deg*Math.sin(ph),kb=(40*Math.max(0,Math.sin(ph-1.2))+6)*deg,K=[Hp[0]+Math.sin(th)*150,Hp[1]+Math.cos(th)*150],F=[K[0]+Math.sin(th-kb)*150,K[1]+Math.cos(th-kb)*150];return[[Hp,K,52],[K,F,40],[F,[F[0]+38,F[1]+4],28]];};
