@@ -125,6 +125,19 @@ const D={
     const m=(a0+a1)/2;T(cx+R*Math.cos(m),cy+R*Math.sin(m)+11,d,{mono:1,size:30,anchor:'middle',fill:k>.5?BG:MUTE,w:700});});
   T(cx,cy+34,String(on*10),{size:190,w:700,anchor:'middle'});T(cx,cy+96,'MIN A WEEK',{mono:1,size:30,anchor:'middle',fill:MUTE});},
  end(l){},
+ chat(l,s){const top=730,bot=1500,k0=ease((l-.1)/.4);
+  el('rect',{x:72,y:640,width:936,height:70,rx:16,fill:PANEL,opacity:k0});T(110,688,s.group||'Family',{size:34,w:700,op:k0});T(970,688,(s.members||'8 MEMBERS'),{mono:1,size:22,fill:MUTE,anchor:'end',op:k0});
+  const wrap=(t,n)=>{const w=t.split(' '),L=[];let c='';w.forEach(x=>{if((c+' '+x).trim().length>n){L.push(c.trim());c=x;}else c+=' '+x;});if(c.trim())L.push(c.trim());return L;};
+  let y=0;const B=[];s.msgs.forEach(m=>{const L=wrap(m.text,22),h=L.length*60+(m.me?44:94);B.push({m,L,h,y});y+=h+22;});
+  const shown=B.filter(b=>l>=b.m.at),last=shown[shown.length-1];
+  let off=0;if(last){const need=top+last.y+last.h-bot;if(need>0){const prev=shown.length>1?Math.max(0,top+shown[shown.length-2].y+shown[shown.length-2].h-bot):0;off=lerp(prev,need,ease((l-last.m.at)/.35));}}
+  const cp=el('clipPath',{id:'chatclip'},art.querySelector('defs')||el('defs',{}));el('rect',{x:0,y:top-6,width:1080,height:bot-top+12},cp);
+  const g=el('g',{'clip-path':'url(#chatclip)'});
+  shown.forEach(b=>{const k=ease((l-b.m.at)/.28),me=b.m.me,w=Math.max(...b.L.map(x=>x.length))*25+60,ww=Math.max(w,me?0:b.m.who.length*17+56),x=me?1008-ww:72,yy=top+b.y-off+(1-k)*30,hi=b.m.hi;
+   el('rect',{x,y:yy,width:ww,height:b.h,rx:28,fill:me?ACC:PANEL,stroke:hi?ACC:'none','stroke-width':hi?5:0,opacity:k},g);
+   if(!me){const n=el('text',{x:x+28,y:yy+44,fill:ACC,'font-family':MONO,'font-size':28,'font-weight':700,opacity:k},g);n.textContent=b.m.who.toUpperCase();}
+   b.L.forEach((ln_,i)=>{const t=el('text',{x:x+28,y:yy+(me?70:112)+i*60,fill:me?BG:INK,'font-family':'Inter Display','font-size':50,'font-weight':me?700:500,opacity:k},g);t.textContent=ln_;});});},
+
  plate(l){const cx=540,cy=1090,R=340,k0=ease((l-.15)/.4),g=ease((l-.5)/2.2),rr=250*g,r=rng(11);
   el('circle',{cx,cy,r:R,fill:PANEL,stroke:INK,'stroke-width':8,opacity:k0});el('circle',{cx,cy,r:R-52,fill:'none',stroke:LINE,'stroke-width':3,opacity:k0});
   if(rr>2){el('circle',{cx,cy,r:rr,fill:INK});for(let i=0;i<9;i++){const a=i*40*Math.PI/180+.3;el('circle',{cx:cx+Math.cos(a)*rr*.72,cy:cy+Math.sin(a)*rr*.72,r:rr*(.36+r()*.1),fill:INK});}

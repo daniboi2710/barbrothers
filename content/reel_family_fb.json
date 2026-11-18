@@ -1,0 +1,29 @@
+{
+  "type": "reel",
+  "slug": "reel_family_group_fb",
+  "template": "hud.html",
+  "music": "pad",
+  "minimal": true,
+  "nogrid": true,
+  "theme": {"BG":"#16070B","INK":"#F7EEE2","MUTE":"#B49A8F","DIM":"#3A1D24","ACC":"#FFA41B","PANEL":"#2A1015","LINE":"#5A3A40","RULE":"#2E161B","WARN":"#F25C54","GLOW":"#4A2A10"},
+  "scenes": [
+    { "dur": 12.4, "draw": "chat", "group": "Family", "members": "8 MEMBERS",
+      "msgs": [
+        { "who": "Amma", "text": "Too hot today. Tomorrow.", "at": 0.8 },
+        { "who": "Thaththa", "text": "I walked to the kade. Twice.", "at": 2.1 },
+        { "who": "Malli", "text": "Gym after exams.", "at": 3.4 },
+        { "who": "Loku Amma", "text": "After Avurudu, putha.", "at": 4.7 },
+        { "me": true, "who": "You", "text": "From Monday. Promise.", "at": 6.0 },
+        { "who": "Seeya", "text": "Walked 5 km this morning. I'm 78.", "at": 7.6, "hi": true }
+      ],
+      "beats": [ { "at": 0, "small": "Sri Lankan family group, 9 PM:", "big": "Who's *exercising*?" },
+                 { "at": 8.8, "small": "Plot twist:", "big": "*Seeya* is carrying|the whole family." } ] },
+    { "dur": 6.6, "draw": "dots", "lit": 13, "source": "WHO STEPS SRI LANKA, 2021",
+      "beats": [ { "at": 0, "small": "It's not just your family.", "big": "*87%* of Sri Lankan|adults don't exercise." } ] },
+    { "dur": 6.4, "draw": "checks", "items": ["Walk after dinner", "10 push-ups", "Take the stairs"],
+      "beats": [ { "at": 0, "small": "Beat Seeya's record:", "big": "*10 minutes*. Today." } ] },
+    { "dur": 3.8, "draw": "end",
+      "beats": [ { "at": 0, "small": "Send this to your family group.", "big": "Follow|*Brain and Brawn*" } ] }
+  ],
+  "caption": "Every Sri Lankan family group has one Seeya doing all the work 😂\n\nAmma: too hot. Thaththa: walked to the kade. You: from Monday.\n\nSend this to your family group and see who replies first 👇\n\n#SriLanka #SriLankanFamily #fitness #brainandbrawn"
+}
