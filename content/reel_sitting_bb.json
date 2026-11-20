@@ -1,0 +1,141 @@
+{
+  "type": "reel",
+  "slug": "reel_sitting_brainbrawn",
+  "template": "hud.html",
+  "music": "pad",
+  "minimal": true,
+  "nogrid": true,
+  "theme": {
+    "BG": "#16070B",
+    "INK": "#F7EEE2",
+    "MUTE": "#B49A8F",
+    "DIM": "#3A1D24",
+    "ACC": "#FFA41B",
+    "PANEL": "#2A1015",
+    "LINE": "#5A3A40",
+    "RULE": "#2E161B",
+    "WARN": "#F25C54",
+    "GLOW": "#4A2A10"
+  },
+  "scenes": [
+    {
+      "dur": 7.0,
+      "draw": "hbars",
+      "max": 9,
+      "items": [
+        [
+          "OFFICE CHAIR",
+          9,
+          "9 HRS",
+          "warn",
+          0.8
+        ],
+        [
+          "STUCK IN TRAFFIC",
+          2,
+          "2 HRS",
+          "warn",
+          1.6
+        ],
+        [
+          "SOFA + PHONE",
+          3,
+          "3 HRS",
+          "warn",
+          2.4
+        ]
+      ],
+      "footer": "A TYPICAL DAY. NOT A STUDY. JUST PAIN.",
+      "beats": [
+        {
+          "at": 0,
+          "small": "A typical Colombo day:",
+          "big": "Sit. Commute. *Sit*.|Scroll. *Sit*."
+        }
+      ]
+    },
+    {
+      "dur": 8.4,
+      "draw": "cal",
+      "v": 60,
+      "label": "MINUTES OF BRISK WALKING, EVERY DAY",
+      "nonote": true,
+      "source": "EKELUND ET AL., LANCET, 2016. 1 MILLION+ ADULTS",
+      "beats": [
+        {
+          "at": 0,
+          "small": "Sitting 8+ hours a day? It took daily",
+          "big": "*60–75 minutes*|to cancel the risk."
+        },
+        {
+          "at": 4.6,
+          "small": "Don't have an hour?",
+          "big": "Fair. *Traffic* exists."
+        }
+      ]
+    },
+    {
+      "dur": 8.6,
+      "draw": "hbars",
+      "max": 100,
+      "source": "DIAZ ET AL., MSSE, 2023. SMALL STUDY, 11 ADULTS",
+      "items": [
+        [
+          "SAT ALL DAY",
+          100,
+          "100%",
+          "warn",
+          0.6
+        ],
+        [
+          "5-MIN WALK EVERY 30 MINS",
+          42,
+          "42%",
+          "acc",
+          4.4
+        ]
+      ],
+      "footer": "BLOOD SUGAR SPIKE AFTER MEALS",
+      "beats": [
+        {
+          "at": 0,
+          "small": "Instead, every 30 minutes,",
+          "big": "get up and|walk *5 minutes*."
+        },
+        {
+          "at": 4.2,
+          "small": "In one study, blood sugar spikes fell",
+          "big": "by *58%*."
+        }
+      ]
+    },
+    {
+      "dur": 7.2,
+      "draw": "checks",
+      "items": [
+        "Walk to the pantry for tea",
+        "Take calls standing",
+        "Use the far washroom"
+      ],
+      "beats": [
+        {
+          "at": 0,
+          "small": "Office-approved excuses:",
+          "big": "Get *up*, machan."
+        }
+      ]
+    },
+    {
+      "dur": 3.4,
+      "draw": "end",
+      "beats": [
+        {
+          "at": 0,
+          "small": "For more,",
+          "big": "Follow|*Brain and Brawn*"
+        }
+      ]
+    }
+  ],
+  "caption": "Office chair 9 hours. Traffic 2 hours. Sofa the rest. Your spine filed a complaint.\n\nNo time for the gym? Walk 5 minutes every 30. Tea in the pantry counts, machan.\n\nTag your desk buddy who hasn't stood up since lunch.\n\n#SriLanka #Colombo #officelife #srilankafitness #brainandbrawn"
+}
